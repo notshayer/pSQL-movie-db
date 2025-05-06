@@ -12,7 +12,7 @@ void exitWithError(PGconn* conn, const std::string& message) {
 }
 
 int main() {
-    const std::string conninfo = "host=localhost port=5432 dbname=movie_db user=postgres password=";
+    const std::string conninfo = "host=localhost port=5432 dbname=box_office_db user=postgres password=";
 
     PGconn* conn = PQconnectdb(conninfo.c_str());
     if (PQstatus(conn) != CONNECTION_OK) {

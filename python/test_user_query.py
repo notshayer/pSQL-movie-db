@@ -2,7 +2,7 @@ import psycopg2
 from datetime import datetime
 
 # Database connection parameters
-DB_NAME = "movie_db"
+DB_NAME = "box_office_db"
 DB_USER = "postgres"
 DB_PASSWORD = ""  # Add your password if needed
 DB_HOST = "localhost"
@@ -58,9 +58,9 @@ try:
         if result:
             print(f"Theatre: {result[0]}, Total Revenue: {result[1]:.2f}")
         else:
-            print("Program Error: Bad Query")
+            print("Program Error: No data found")
     else:
-        print("No data found for the given date.")
+        print("Bad input.")
 
 except Exception as e:
     print("Error:", e)

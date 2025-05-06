@@ -7,7 +7,7 @@ brew install postgresql
 brew services start postgresql
 
 echo "Spinning up database..."
-sleep 5
+sleep 2
 
 # Variables
 DB_NAME="box_office_db"
