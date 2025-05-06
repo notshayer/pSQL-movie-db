@@ -1,7 +1,7 @@
 -- 🎭 Theatres
 INSERT INTO Theatre (Company_Name, Location, Open_Showtime, Close_Showtime) VALUES
-('CineWorld', 'New York, NY', '10:00', '23:00'),
-('Star Cinema', 'Los Angeles, CA', '11:00', '22:00');
+('Cinemark', 'Glendale, CA', '10:00', '23:00'),
+('AMC', 'Los Angeles, CA', '11:00', '22:00');
 
 -- 🧩 Screen Specialties
 INSERT INTO Screen_Specialty (Screen_Type) VALUES
@@ -9,10 +9,10 @@ INSERT INTO Screen_Specialty (Screen_Type) VALUES
 
 -- 🖥️ Screens (2 per theatre)
 INSERT INTO Screens (Theatre_ID, Specialty_ID, Reclining_Seats) VALUES
-(1, 1, TRUE),  -- CineWorld IMAX
-(1, 2, FALSE), -- CineWorld Standard
-(2, 1, TRUE),  -- Star Cinema IMAX
-(2, 2, TRUE);  -- Star Cinema Standard
+(1, 1, TRUE),  -- Cinemark IMAX
+(1, 2, FALSE), -- Cinemark Standard
+(2, 1, TRUE),  -- AMC IMAX
+(2, 2, TRUE);  -- AMC Standard
 
 -- 🎬 Movies
 INSERT INTO Movie (Title, Runtime) VALUES
@@ -24,7 +24,7 @@ INSERT INTO Ticket_Type (Type_Name) VALUES
 ('Adult'), ('Child'), ('Senior');
 
 -- 🕰️ Showings (2 movies × 2 theatres × 2 days × 1 screen = 8 showings)
--- Screens 1 and 3 are IMAX screens in CineWorld and Star Cinema respectively
+-- Screens 1 and 3 are IMAX screens in Cinemark and AMC respectively
 -- Inception → Screen 1, Avengers → Screen 3
 INSERT INTO Showing (Screen_ID, Movie_ID, Date, Start_Time) VALUES
 -- May 10

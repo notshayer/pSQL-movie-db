@@ -1,43 +1,59 @@
 #!/bin/bash
 
-## -- Postgres Install and Setup
+set -e  # Exit on any error
+
+echo "Installing and starting PostgreSQL via Homebrew..."
 brew install postgresql
+brew services start postgresql
+
+echo "Spinning up database..."
+sleep 5
+
 # Variables
 DB_NAME="box_office_db"
-DB_USER="admin"
+DB_USER="postgres"
 SCHEMA_FILE="db_schemas.sql"
 DATA_FILE="test_data.sql"
 
 # Function to check if a database exists
 db_exists() {
-  psql -U "$DB_USER" -tAc "SELECT 1 FROM pg_database WHERE datname='${DB_NAME}'" | grep -q 1
+  psql -U "$DB_USER" -d postgres -tAc "SELECT 1 FROM pg_database WHERE datname='${DB_NAME}'" | grep -q 1
 }
 
-# Drop and recreate database if it exists
+# Step 1: Drop existing database if it exists
 if db_exists; then
   echo "Database $DB_NAME already exists. Dropping it..."
   dropdb -U "$DB_USER" "$DB_NAME"
 fi
 
-# Step 1: Create the database
+# Step 2: Create database
 echo "Creating database: $DB_NAME..."
 createdb -U "$DB_USER" "$DB_NAME"
 
-# Step 2: Load schema
-echo "Loading schema from $SCHEMA_FILE..."
-psql -U "$DB_USER" -d "$DB_NAME" -f "$SCHEMA_FILE"
+# Step 3: Load schema
+if [[ -f "$SCHEMA_FILE" ]]; then
+  echo "Loading schema from $SCHEMA_FILE..."
+  psql -U "$DB_USER" -d "$DB_NAME" -f "$SCHEMA_FILE"
+else
+  echo "Schema file $SCHEMA_FILE not found! Aborting."
+  exit 1
+fi
 
-# Step 3: Load test data
-echo "Loading test data from $DATA_FILE..."
-psql -U "$DB_USER" -d "$DB_NAME" -f "$DATA_FILE"
+# Step 4: Load test data
+if [[ -f "$DATA_FILE" ]]; then
+  echo "Loading test data from $DATA_FILE..."
+  psql -U "$DB_USER" -d "$DB_NAME" -f "$DATA_FILE"
+else
+  echo "Data file $DATA_FILE not found! Aborting."
+  exit 1
+fi
 
-echo "Database ready!"
+echo "✅ Database setup complete!"
 
-## ----- Programs setup
-ROOT_DIR="$0"
-
-# Python pre-reqs 
-pip install -r ${ROOT_DIR}/requirements.txt
-
-# C++ Pre-reqs
-sudo apt install libpq-dev
+# Step 5: Python dependencies
+if [[ -f python/requirements.txt ]]; then
+  echo "Installing Python dependencies..."
+  pip3 install -r python/requirements.txt
+else
+  echo "requirements.txt not found! Skipping Python setup."
+fi
