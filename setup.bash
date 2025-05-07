@@ -12,8 +12,8 @@ sleep 2
 # Variables
 DB_NAME="box_office_db"
 DB_USER="postgres"
-SCHEMA_FILE="db_schemas.sql"
-DATA_FILE="test_data.sql"
+SCHEMA_FILE="db/db_schemas.sql"
+DATA_FILE="db/test_data.sql"
 
 # Function to check if a database exists
 db_exists() {
@@ -48,7 +48,7 @@ else
   exit 1
 fi
 
-echo "✅ Database setup complete!"
+echo "Database setup complete!"
 
 # Step 5: Python dependencies
 if [[ -f python/requirements.txt ]]; then

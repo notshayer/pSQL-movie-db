@@ -6,8 +6,8 @@
     - Thought process was to be able to get box office information separated by both location and specific movie theatre parent company independently
 
 # Architecture Explained:
-The schema diagram is as follows: (dq_schemas.sql in root dir)
-![plot](./schema_erd.png)
+The schema diagram is as follows: (db_schemas.sql in root dir)
+![plot](./db/schema_erd.png)ß
 
 The base concept behind this architecture was to provide the ability to look closer at trends specific to a movie theatre, and then zoom out from there to generate data and trends on a given region or timeframe, as well as temporal trends agnostic to geographical data. The microscopic view of just a theatre and its respective data would help in generating data that could be used in improving the sales at a single specific theatre, and the macroscopic view would aide in providing overall box office performance data.
 
