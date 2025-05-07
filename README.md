@@ -27,7 +27,7 @@ The data used for the test database can be found in the `test_data.sql` file in 
   - Python Version:
     - run `python ./python/test_user_query.py`
   - CPP Version:
-    - Enter the program directory using `cd cpp` then call `./run.bash`
+    - Enter the program directory using `cd cpp` then call `bash run.bash`
     - Program should run automatically after compiling
 
 # Extension
