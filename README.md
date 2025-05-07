@@ -1,5 +1,5 @@
 # Deliverables Overview
-- Data and schema files can be found in the `db` folder. Exxplanation down below.
+- Data and schema files can be found in the `db` folder. Explanation down below.
 - The two solutions for the program can be found in the `python` and `cpp` folders respectively. Instructions on running the code can be found below, but note that the scripts are intended for MacOS but can easily be changed to Linux compatibility by using `apt install` instead of `brew install`
 - The extension I chose was to analyze and plot the data to continue the context of "analyze the movie industry." The plots produced can be seen below.
 
