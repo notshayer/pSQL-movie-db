@@ -39,25 +39,39 @@ INSERT INTO Showing (Screen_ID, Movie_ID, Show_Date, Show_Time) VALUES
 -- Tickets
 -- Showing 1 (1 ticket)
 INSERT INTO Ticket (Showing_ID, Type_Name, Price) VALUES
+(1, 'Adult', 15.00),
+(1, 'Adult', 15.00),
+(1, 'Adult', 15.00),
+(1, 'Adult', 15.00),
 (1, 'Adult', 15.00);
 
 -- Showing 2 (2 tickets: Adult + Student)
 INSERT INTO Ticket (Showing_ID, Type_Name, Price) VALUES
 (2, 'Adult', 15.00),
-(2, 'Student', 11.00);
+(2, 'Student', 11.00),
+(2, 'Adult', 15.00),
+(2, 'Adult', 15.00);
 
 -- Showing 3 (1 ticket)
 INSERT INTO Ticket (Showing_ID, Type_Name, Price) VALUES
-(3, 'Senior', 12.00);
+(3, 'Senior', 12.00),
+(7, 'Adult', 15.00),
+(8, 'Adult', 15.00),
+(7, 'Adult', 15.00),
+(8, 'Adult', 15.00);
 
 -- Showing 4 (2 tickets: Senior + Child)
 INSERT INTO Ticket (Showing_ID, Type_Name, Price) VALUES
 (4, 'Senior', 12.00),
-(4, 'Child', 10.00);
+(4, 'Child', 10.00),
+(4, 'Adult', 15.00),
+(4, 'Adult', 15.00);
 
 -- Showing 5 (1 ticket)
 INSERT INTO Ticket (Showing_ID, Type_Name, Price) VALUES
-(5, 'Child', 10.00);
+(5, 'Child', 10.00),
+(5, 'Adult', 15.00),
+(5, 'Adult', 15.00);
 
 -- Showing 6 (2 tickets: Child + Adult)
 INSERT INTO Ticket (Showing_ID, Type_Name, Price) VALUES
@@ -66,7 +80,11 @@ INSERT INTO Ticket (Showing_ID, Type_Name, Price) VALUES
 
 -- Showing 7 (1 ticket)
 INSERT INTO Ticket (Showing_ID, Type_Name, Price) VALUES
-(7, 'Adult', 15.00);
+(7, 'Adult', 15.00),
+(7, 'Adult', 15.00),
+(7, 'Senior', 12.00),
+(7, 'Adult', 15.00),
+(7, 'Senior', 12.00);
 
 -- Showing 8 (2 tickets: Adult + Senior)
 INSERT INTO Ticket (Showing_ID, Type_Name, Price) VALUES
