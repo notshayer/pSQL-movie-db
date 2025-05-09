@@ -1,9 +1,3 @@
-# Deliverables Overview
-- Data and schema files can be found in the `db` folder. Explanation down below.
-- The two solutions for the program can be found in the `python` and `cpp` folders respectively. Instructions on running the code can be found below, but note that the scripts are intended for MacOS but can easily be changed to Linux compatibility by using `apt install` instead of `brew install`
-  - User input sanitization was done by validating their input against available dates
-- The extension I chose was to analyze and plot the data to continue the context of "analyze the movie industry." The plots produced can be seen below.
-
 # Notes and Assumptions:
 - Used simple serial ints for IDs instead of UUIDs to save time. Would otherwise use UUIDs for scalability, portability, and security
   reasons.
@@ -20,7 +14,7 @@ The base concept behind this architecture was to provide the ability to look clo
 The data used for the test database can be found in the `test_data.sql` file in the root directory.
 
 # Instructions for Testing:
-1. The following instructions assume you are on a ~~Unix based system. (i.e. MacOS or Ubuntu)~~ Mac. On top of that, I'm also assuming python and other core deps are installed on your machine. (The setup script does not account for all required installs)
+1. The following instructions assume you are on a ~~Unix based system. (i.e. MacOS or Ubuntu)~~ Mac. On top of that, I'm also assuming python and other core deps are installed on your machine.
 2. Run `./setup.bash`
   - might require `sudo chmod +x setup.bash`
   - script installs python and cpp dependencies as well as PSQL
